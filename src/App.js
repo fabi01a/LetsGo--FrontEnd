@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+// import { Route, Routes, Router } from 'react-router-dom';
+// import Home from "./pages/Home.jsx";
+import Search from "./pages/Search";
+// import Campsites from "./pages/Campsites"
+// import CampsiteId from "./pages/CampsiteId";
+// import SubmitButton from './components/SubmitButton';
+// import FourOhFour from './pages/404';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  //   <Router>
+  //   <div>
+  //     <Routes>
+  //       <Route path='/' element={<Home />} />
+  //       <Route path='/campsites/search' element={<Search />} />
+  //       <Route path='/campsites' element={<Campsites />}>
+  //         <Route path='/:campsiteId' element={<CampsiteId />} ></Route>
+  //       </Route>
+  //       <Route path="*" element={<FourOhFour />} />
+  //     </Routes>
+  //   </div>
+  // </Router>
+        <Search></Search>
   );
 }
 

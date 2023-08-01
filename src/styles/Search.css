@@ -1,0 +1,39 @@
+#search-container {
+    display:flex;
+    flex-direction: column;
+    background-color: beige;
+    height: 500px;
+    width: 500px;
+}
+
+#search-container--top {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:50%;
+    width:100%;
+}
+
+#search-container--middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height:25%;
+    width:100%;
+}
+
+#search-container--bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height:25%;
+    width:100%;
+
+}
+#search-container--top--image {
+    height:50%;
+    width: 45%;
+}
