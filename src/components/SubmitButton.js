@@ -1,12 +1,14 @@
+import React from 'react';
 import "../styles/SubmitButton.css";
-import { Button } from 'react-bootstrap/Button';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 
-const SubmitButton = () => {
+const SubmitButton = ({ handleSubmit }) => {
     return (
-        <Button variant="success"size="lg">LetsGo!</Button>      
+        <div>
+            <Button variant='success' size='lg' onClick={handleSubmit}>Let's Go!</Button>
+        </div>
     );
 };
-
+  
 export default SubmitButton;
