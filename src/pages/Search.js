@@ -21,20 +21,16 @@ const Search = () => {
 
     const handleSubmit = async () => {
         try {
-            const geocodingApiKey = 'pk.b87d71377e6d6c91ff3e5b1c88207b21';
-            const geocodingURL = `https://us1.locationiq.com/v1/search.php?key=${geocodingApiKey}&q=${encodeURIComponent(address)}&format=json`;
+            const response = await axios.get('http://127.0.0.1:8000/get_campsite_data/', {
+                params: {                   
+                    address: address,
+                    radius: maxDistance,
+                },
+            });
+
+            //processed data received from backend/use this later to pass along to other page
+            //const processedData = response.data;
             
-            const geocodingResponse = await axios.get(geocodingURL);
-            const { lat,lon } = geocodingResponse.data[0];
-            const maxDistanceValue = parseFloat(maxDistance);
-
-            const ridbApiKey = '8a67c918-75dc-4098-8b07-0f630608990a';
-            const ridbUrl = `https://ridb.recreation.gov/api/v1/campsites?latitude=${lat}&longitude=${lon}&radius=${maxDistanceValue}&apikey=${ridbApiKey}`;
-
-            const campsitesResponse = await axios.get(ridbUrl);
-            const campsitesData = campsitesResponse.data;
-
-            console.log('Campsites Data', campsitesData);
         }   catch (error) {
             console.error('Error occured', error);
         }
