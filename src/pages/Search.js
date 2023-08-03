@@ -21,7 +21,7 @@ const Search = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.get('https://letsgo-be-userprofile.onrender.com/', {
+            const response = await axios.get('https://letsgo-be-userprofile.onrender.com/get_campsite_data', {
                 params: {                   
                     address: address,
                     radius: maxDistance,

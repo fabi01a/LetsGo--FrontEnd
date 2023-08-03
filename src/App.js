@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 // import Home from "./pages/Home.jsx";
 import Search from "./pages/Search";
-import DisplayCampsites from "./pages/DisplayCampsites";
+// import DisplayCampsites from "./pages/DisplayCampsites";
 // import CampsiteId from "./pages/CampsiteId";
 // import SubmitButton from './components/SubmitButton';
 // import FourOhFour from './pages/404';
