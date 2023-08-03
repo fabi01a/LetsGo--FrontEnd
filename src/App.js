@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, Router } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 // import Home from "./pages/Home.jsx";
 import Search from "./pages/Search";
 import DisplayCampsites from "./pages/DisplayCampsites";
@@ -10,7 +10,6 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
       <div>
         <Routes>
           {/* <Route path='/' element={<Home />} /> */}
@@ -20,7 +19,6 @@ function App() {
         </Routes>
         
       </div>
-    </Router>
         // <Search></Search>
         // <DisplayCampsites></DisplayCampsites>
   );
