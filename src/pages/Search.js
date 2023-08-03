@@ -24,10 +24,11 @@ const Search = () => {
             const response = await axios.get('https://letsgo-be-userprofile.onrender.com/get_campsite_data', {
                 params: {                   
                     address: address,
-                    radius: maxDistance,
+                    radius: maxDistance,  
                 },
+                
             });
-
+            console.log(response.data)
             //processed data received from backend/use this later to pass along to other page
             //const processedData = response.data;
             
