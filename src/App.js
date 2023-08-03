@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import Home from "./pages/Home.jsx";
+import Home from "./pages/Home";
 import Search from "./pages/Search";
 // import DisplayCampsites from "./pages/DisplayCampsites";
 // import CampsiteId from "./pages/CampsiteId";
@@ -12,8 +12,8 @@ function App() {
   return (
       <div>
         <Routes>
-          {/* <Route path='/' element={<Home />} /> */}
-          <Route index path='/' element={<Search />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/search' element={<Search />} />
           {/* <Route path='/search/campsites' element={<DisplayCampsites />} /> */}
      
         </Routes>
