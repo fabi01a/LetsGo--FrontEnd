@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-// import DisplayCampsites from "./pages/DisplayCampsites";
+import DisplayCampsites from "./pages/DisplayCampsites";
 // import CampsiteId from "./pages/CampsiteId";
 // import SubmitButton from './components/SubmitButton';
 // import FourOhFour from './pages/404';
@@ -14,13 +14,12 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
-          {/* <Route path='/search/campsites' element={<DisplayCampsites />} /> */}
+          <Route path='/search/campsites' element={<DisplayCampsites />} />
      
         </Routes>
         
       </div>
-        // <Search></Search>
-        // <DisplayCampsites></DisplayCampsites>
+
   );
 }
 

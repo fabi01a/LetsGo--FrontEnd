@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import '../styles/Search.css';
 import SubmitButton from '../components/SubmitButton';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 
 const Search = () => {
+    const history = useHistory();
+
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
 
@@ -32,7 +35,8 @@ const Search = () => {
             // console.log(response.data)
             //processed data received from backend/use this later to pass along to other page
             //const processedData = response.data;
-            
+            //After successfully getting the response, navigate to DisplayCampsites page
+            history.push('/search/campsites');
         }   catch (error) {
             console.error('Error occured', error);
         }
