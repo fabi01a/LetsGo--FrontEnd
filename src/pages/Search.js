@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Search = () => {
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
@@ -30,13 +30,11 @@ const Search = () => {
                     address: address,
                     radius: maxDistance,  
                 },
-                
             });
             // console.log(response.data)
             //processed data received from backend/use this later to pass along to other page
             //const processedData = response.data;
-            //After successfully getting the response, navigate to DisplayCampsites page
-            history.push('/search/campsites');
+           navigate('/search/campsites');
         }   catch (error) {
             console.error('Error occured', error);
         }
@@ -59,7 +57,7 @@ const Search = () => {
                 </div>
             </div>
             <div id='search-container--bottom'>
-                <SubmitButton handleSubmit={handleSubmit} />
+                <SubmitButton navigate={navigate} onSubmit={handleSubmit} />
             </div>
         </div>
     );

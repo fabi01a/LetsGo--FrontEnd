@@ -3,10 +3,14 @@ import "../styles/SubmitButton.css";
 import { Button } from 'react-bootstrap';
 
 
-const SubmitButton = ({ handleSubmit }) => {
+const SubmitButton = ({ onSubmit }) => {
+    const handleButtonClick = () => {
+        onSubmit();
+    };
+
     return (
         <div>
-            <Button variant='success' size='lg' onClick={handleSubmit}>Let's Go!</Button>
+            <Button variant='success' size='lg' onClick={handleButtonClick}>Let's Go!</Button>
         </div>
     );
 };
