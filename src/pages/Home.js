@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Link to='/search'>
-                <SubmitButton />
+                <SubmitButton navigateTo='/search' />
             </Link>
         </div>
     );
