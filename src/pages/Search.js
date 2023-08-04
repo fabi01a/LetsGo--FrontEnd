@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import '../styles/Search.css';
 import SubmitButton from '../components/SubmitButton';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Search = () => {
-    const history = useHistory();
+    const history = useNavigate();
 
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
