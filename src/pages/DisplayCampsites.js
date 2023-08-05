@@ -1,51 +1,49 @@
-import React, { useState } from 'react';
-import Badge from 'react-bootstrap/Badge'
-import ListGroup from 'react-bootstrap/ListGroup';
+import React from 'react';
+import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import { useLocation, Link } from 'react-router-dom';
 import '../styles/DisplayCampsites.css';
-import axios from 'axios';
 
 const DisplayCampsites = () => {
-    // //receive the data
-    
-   
-    // const campsiteData = [
-    //     {id:1, name: 'Campsite 1', description: 'Description 1'},
-    //     {id:2, name: 'Campsite 2', description: 'Descriptopn 2'},
-    //     {id:3, name: 'Campsite 3', description: 'Descriptopn 3'},
-    // ];
-// campsiteData.map((campsite)) 
+    const location = useLocation();
+    console.log(location)
+    //receive the campsite data from Search
+    const processedData = location?.state?.processedData || [];
+    console.log(processedData)
     return (
-        <ListGroup as="ol" numbered>
-            <ListGroup.Item as="li"className="d-flex justify-content-between align-items-start">
-                <div className="ms-2 me-auto">
-                    <div className="fw-bold">Campsite 1</div>
-                    Description for Campsite 1
-                </div>
-                <Badge bg="primary" pill>
-                    14
-                </Badge>
-            </ListGroup.Item>
-            <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-                <div className="ms-2 me-auto">
-                    <div className="fw-bold">Campsite 2</div>
-                    Description for Campsite 2
-                </div>
-                <Badge bg="primary" pill>
-                    14
-                </Badge>
-            </ListGroup.Item>
-            <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-                <div className="ms-2 me-auto">
-                    <div className="fw-bold">Campsite 3</div>
-                    Description for Campsite 3
-                </div>
-                <Badge bg="primary" pill>
-                    14
-                </Badge>
-            </ListGroup.Item>
-        </ListGroup>
+        <MDBTable hover>
+            <MDBTableHead>
+                <tr> 
+                    <th scope='col'>#</th>
+                    <th scope='col'>Facility Name</th>
+                    <th scope='col'>Facility Address</th>
+                    <th scope='col'>Facility Phone Number</th>
+                </tr>
+            </MDBTableHead>
+        <MDBTableBody>
+            {processedData.map((campsite, index) => (
+                <tr key={index}>
+                    <th scope='row'>{index + 1}</th>
+                    <td>
+                        <Link to={{
+                            pathname: '/campsites/${campsite.facility_name}',
+                            state: {
+                                name: campsite.facility_name,
+                                address: campsite.facility_address,
+                                phone: campsite.facility_phone,
+                                directions: campsite.facility_directions,
+                                description: campsite.facility_description,
+                                map: campsite.facility_map_url
+                            }
+                        }}>
+                            {campsite.facility_name}
+                        </Link>
+                    </td>
+                    <td>{campsite.facility_address || 'N/A'}</td>
+                    <td>{campsite.facility_phone}</td>     
+                </tr>
+                ))}
+            </MDBTableBody>
+        </MDBTable>
     );
 };
-
-
 export default DisplayCampsites;

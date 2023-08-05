@@ -31,10 +31,10 @@ const Search = () => {
                     radius: maxDistance,  
                 },
             });
-            // console.log(response.data)
+            console.log(response.data)
             //processed data received from backend/use this later to pass along to other page
-            //const processedData = response.data;
-           navigate('/search/campsites');
+            const processedData = response.data;
+            navigate('/search/campsites', { state: { processedData} });
         }   catch (error) {
             console.error('Error occured', error);
         }
