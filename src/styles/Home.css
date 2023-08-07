@@ -1,0 +1,25 @@
+#home-container {
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    width: 500px;
+}
+.row-1 {
+    align-self: flex-start;
+    order: 1;
+    background-color: rgb(249, 248, 248);
+    flex:2;
+    height: 250px;
+    width:500px;
+}
+.row-2 {
+    order:2;
+    flex:1;
+}
+#submit-button-container {
+    order:3;
+    display: flex;
+    justify-content: center;
+}

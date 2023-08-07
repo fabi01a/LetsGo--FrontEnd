@@ -12,6 +12,13 @@ const Search = () => {
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
 
+    // useEffect(() => {
+    //     if (processedData) {
+    //         navigate('/search/campsites', { state: processedData });
+    //     }
+    // }, [processedData, navigate]);
+
+
     const handleAddressChange = (e) => {
         setAddress(e.target.value);
     }
@@ -33,8 +40,8 @@ const Search = () => {
             });
             console.log(response.data)
             //processed data received from backend/use this later to pass along to other page
-            const processedData = response.data;
-            navigate('/search/campsites', { state: { processedData} });
+            // setProcessedData(response.data);//setting the processedData state here
+            navigate('/search/campsites',  { state: response.data });
         }   catch (error) {
             console.error('Error occured', error);
         }
@@ -57,7 +64,8 @@ const Search = () => {
                 </div>
             </div>
             <div id='search-container--bottom'>
-                <SubmitButton navigate={navigate} onSubmit={handleSubmit} />
+                <SubmitButton onSubmit={handleSubmit} />
+                    {/* <SubmitButton navigate={navigate} onSubmit={handleSubmit} /> */}
             </div>
         </div>
     );

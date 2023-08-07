@@ -1,12 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-const CampsiteDetails = (props) => {
-    //extract the data from the location state
-    const { address, phone, direction, description, mapUrl } = props.location.state;
-    
+const CampsiteDetails = () => {
+    const location = useLocation();
+    const campsiteData = location.state || [];
+    //check if state obj is null or not
+    console.log('State:', campsiteData);
+
     return (
         <div>
-            <><h2>{props.match.params.facilityName}</h2><p>Address: {address}</p><p>Phone: {phone}</p><p>Directions: {direction}</p><p>Description: {description}</p><p>Map: {mapUrl}</p></>
+            <h2>{campsiteData.name || 'N/A'}</h2>
+            {/* <p>Address: {address}</p> */}
+            <p>Phone: {campsiteData.facility_phone || 'N/A'}</p>
+            <p>Directions: {campsiteData.facility_directions || 'N/A'}</p>
+            <p>Description: {campsiteData.facility_description || 'N/A'}</p>
+            <p>Map: {campsiteData.facility_map_url || 'N/A'}</p>
         </div>
     );
 };
