@@ -9,7 +9,14 @@ const CampsiteDetails = () => {
 
     return (
         <div>
-            <h2>{campsiteData.name || 'N/A'}</h2>
+            <header>
+                {campsiteData.facility_map_url ? (
+                    <img src={campsiteData.facility_map_url} alt={`Map for ${campsiteData.name}`} />
+                ) : (
+                    <h2>{campsiteData.name || 'N/A'}</h2>
+                )}
+            </header>
+            
             {/* <p>Address: {address}</p> */}
             <p>Phone: {campsiteData.facility_phone || 'N/A'}</p>
             <p>Directions: {campsiteData.facility_directions || 'N/A'}</p>

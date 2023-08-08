@@ -3,12 +3,13 @@ import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { useLocation, Link } from 'react-router-dom';
 import '../styles/DisplayCampsites.css';
 
+
 const DisplayCampsites = () => {
     const location = useLocation();
     const processedData = location.state || [];
-    console.log('ProcessedData:', processedData);
+
     return (
-        <div id='use-params'>
+        <div id='use-params'className='campsite-container'>
             <MDBTable hover>
                 <MDBTableHead>
                     <tr> 
@@ -39,7 +40,7 @@ const DisplayCampsites = () => {
                         </Link>
                         </td>
                         <td>{campsite.facility_address || 'N/A'}</td>
-                        <td>{campsite.facility_phone}</td>     
+                        <td>{campsite.facility_phone || 'Not Available At This Time'}</td>     
                         </tr>
                     ))} 
                 </MDBTableBody>

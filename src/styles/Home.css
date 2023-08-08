@@ -23,3 +23,38 @@
     display: flex;
     justify-content: center;
 }
+.select-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200%;
+}
+.select-dropdown {
+    width: 100;
+    height: 60px;
+    /* overflow-x: scroll;
+    white-space: nowrap;
+    text-align: center;
+    display: inline-block; */
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease-in-out;
+
+    /* text-align: center;
+    display: flex; */
+    /* justify-content: center; */
+    /* align-items: center;
+    align-items: center;
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease-in-out;  */
+
+}
+.select-dropdown option{
+    transform-origin: 50% 100%;
+    transform: rotate(0deg);
+    /* display: inline-block;
+    padding: 0 8px;
+    font-size: 40px; */
+};

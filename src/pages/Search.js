@@ -50,7 +50,7 @@ const Search = () => {
     return (
         <div id="search-container">
             <div id='search-container--top'>
-                <img id="search-container--top--image"src="https://res.cloudinary.com/dvbdefnwx/image/upload/v1666621595/sample.jpg" alt="campsite tent"/> 
+                <img id="search-container--top--image"src="https://res.cloudinary.com/dgiopn7es/image/upload/v1691441983/Screenshot_2023-08-07_at_1.58.37_PM_ulbnv9.png" alt="campsite tent"/> 
                 <div>Choose Your Destination</div>
             </div>
             <div id='search-container--middle'>
