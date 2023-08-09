@@ -21,14 +21,15 @@ const DisplayCampsites = () => {
                 </MDBTableHead>
             <MDBTableBody>
                 {processedData.map((campsite, index) => (
+                    // console.log(campsite.reverse_geocode_address);
                     <tr key={index}>
                         <th scope='row'>{index + 1}</th>
                         <td>
                             <Link 
-                                to={`/search/campsites/${campsite.name}`}
+                                to={`/search/campsites/${campsite.facility_name}`}
                                 state= {{ 
                                             name: campsite.facility_name,
-                                            facility_address: campsite.facility_address,
+                                            // facility_address: campsite.reverse_geocode_address,
                                             facility_phone: campsite.facility_phone,
                                             facility_directions: campsite.facility_directions,
                                             facility_description: campsite.facility_description,
@@ -39,7 +40,7 @@ const DisplayCampsites = () => {
                         {campsite.facility_name}
                         </Link>
                         </td>
-                        <td>{campsite.facility_address || 'N/A'}</td>
+                        {/* <td>{campsite.reverse_geocode_address || 'N/A'}</td> */}
                         <td>{campsite.facility_phone || 'Not Available At This Time'}</td>     
                         </tr>
                     ))} 

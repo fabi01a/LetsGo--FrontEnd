@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import DisplayCampsites from "./pages/DisplayCampsites";
 import CampsiteDetails from "./pages/CampsiteDetails";
+import UserProfile from "./pages/UserProfile";
+import FavoriteFacilities from "./pages/FavoriteFacilities";
 // import { CampsiteProvider } from "./pages/CampsiteContext";
 // import SubmitButton from './components/SubmitButton';
 // import FourOhFour from './pages/404';
@@ -14,6 +16,10 @@ const App = () => {
     <div className='App'>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home'>
+          <Route index element={<UserProfile />} />
+          <Route path='favorites' element={<FavoriteFacilities />} />
+        </Route>
         <Route path='/search' element={<Search />} />
         <Route path='/search/campsites' element={<DisplayCampsites />} />
         <Route path='/search/campsites/:facilityName'element={<CampsiteDetails />} />

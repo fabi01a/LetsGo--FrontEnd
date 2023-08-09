@@ -13,13 +13,14 @@ const CampsiteDetails = () => {
 
     return (
         <div>
-            {/* <header>
+            <header>
                 {campsiteData.facility_map_url ? (
-                    <img src={campsiteData.facility_map_url} alt={`Map for ${campsiteData.name}`} />
+                    <img src={campsiteData.facility_map_url} alt={`Map for ${campsiteData.name}`} 
+                        onError={(e) => console.error('Image load error:', e)}/>
                 ) : (
                     <h2>{campsiteData.name || 'N/A'}</h2>
                 )}
-            </header>  */}
+            </header> 
             
             {/* <p>Address: {address}</p> */}
             <p>Phone: {campsiteData.facility_phone || 'N/A'}</p>

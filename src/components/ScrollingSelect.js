@@ -13,15 +13,12 @@ const ScrollingSelect = ({ options }) => {
             <div className='select-container'>
                 <select className='select-dropdown'value={selectedOption} onChange={handleSelectChange}>
                     {options.map((option,index) => (
-                        <option key={option.value} value={option.value}
-                            styke={{
-                                transform: `rotate(${(index*360) / options.length}deg`
-                            }}>
+                        <option key={option.value} value={option.value}>
                             {option.value}
                         </option>
                     ))}
                 </select>    
-            </div>
+            </div>  
         </div>
     );
 };
