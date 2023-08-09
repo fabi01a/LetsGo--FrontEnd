@@ -43,3 +43,15 @@
 .bold-text {
   font-weight: bolder;
 }
+.page-container {
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+.row-1--title {
+  font-size: xx-large;
+  font-weight: bolder;
+}

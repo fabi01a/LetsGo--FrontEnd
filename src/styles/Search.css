@@ -1,20 +1,3 @@
-#search-container {
-    display:flex;
-    flex-direction: column;
-    background-color: beige;
-    height: 500px;
-    width: 500px;
-}
-
-#search-container--top {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height:50%;
-    width:100%;
-}
-
 #search-container--middle {
     display: flex;
     flex-direction: row;
@@ -33,7 +16,6 @@
     width:100%;
 
 }
-#search-container--top--image {
-    height:50%;
-    width: 45%;
+#search-row--1--image {
+    height: 250px;
 }

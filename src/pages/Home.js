@@ -20,10 +20,10 @@ const Home = () => {
     };
 
     return (
-        <div id="home-container">
+        <div className="page-container">
             <div className="row-1">
-                <div id="row-1--title">Choose Your Adventure</div>
-                <img id="row--1--image" src="https://res.cloudinary.com/dgiopn7es/image/upload/v1691431257/Home_plcolb.jpg" alt="woman with a map" />
+                <div className="row-1--title">Choose Your Adventure</div>
+                <img id="home-row--1--image" src="https://res.cloudinary.com/dgiopn7es/image/upload/v1691431257/Home_plcolb.jpg" alt="woman with a map" />
             </div>
             <div className="row-2">
                 <ScrollingSelect options={options} onChange={handleSelectChange} />
