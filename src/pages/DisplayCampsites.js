@@ -9,10 +9,10 @@ const DisplayCampsites = () => {
     const processedData = location.state || [];
 
     return (
-        <div id='use-params'className='campsite-container'>
+        <div className="page-container">
             <MDBTable hover>
-                <MDBTableHead>
-                    <tr> 
+                <MDBTableHead id='table-head'>
+                    <tr className='table-warning'> 
                         <th scope='col'>#</th>
                         <th scope='col'>Facility Name</th>
                         <th scope='col'>Facility Address</th>
@@ -40,7 +40,7 @@ const DisplayCampsites = () => {
                         {campsite.facility_name}
                         </Link>
                         </td>
-                        {/* <td>{campsite.reverse_geocode_address || 'N/A'}</td> */}
+                        <td>{campsite.reverse_geocode_address || 'N/A'}</td>
                         <td>{campsite.facility_phone || 'Not Available At This Time'}</td>     
                         </tr>
                     ))} 

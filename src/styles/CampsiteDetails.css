@@ -1,0 +1,44 @@
+#details-left {
+    width: 40vw
+}
+
+#details-right {
+    height: 100vh;
+    overflow-x: hidden;
+    width: 60vw;
+    padding: 0 60px;
+    text-align:justify;
+    background-color: rgb(233,249,226);
+}
+
+#details-page-container {
+    background-color: beige;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+#details-left--image > img {
+    width: 100%;
+}
+#details-left--facility-info {
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 25px 0 0 75px;
+    /* padding-left: 75px; */
+    
+}
+#details-right--description {
+    height: 77%;
+    overflow-y: scroll;
+}
+
+#details-right--directions {
+    padding-top: 3%;
+    height: 20%;
+    overflow-y: scroll ;
+}
