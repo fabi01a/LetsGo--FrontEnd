@@ -6,6 +6,13 @@ const CampsiteDetails = () => {
     const location = useLocation();
     const campsiteData = location.state || {};
 
+    //setting up address render so that it is not an object(cannot render objs)
+    const address = campsiteData.facility_address || {};
+    const streetAddress = address.street_address || 'Address not found';
+    const city = address.city || '-';
+    const state = address.state || '-';
+    const postalCode = address.postal_code || '-';
+
     //function to strip HTML tags from a string
     const stripHtmlTags = (html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -16,14 +23,15 @@ const CampsiteDetails = () => {
         <div id='details-page-container'>
             <div id="details-left">
                 <div id="details-left--image">
-                    <img src="https://res.cloudinary.com/dgiopn7es/image/upload/v1691431257/Home_plcolb.jpg" alt="camping"/>
-                        
+                    <img src={campsiteData.facility_image || 'https://res.cloudinary.com/dgiopn7es/image/upload/v1691697527/tent_mvsmqn.avif'} alt="camping tents"/>
                 </div>
                 <div id="details-left--facility-info">
                     <h2>{campsiteData.name || 'N/A'}</h2>
                         {/* <p>{facilityType}</p> */}
-                        {/* <p>Address: {address}</p> */}
-                    <p>Phone: {campsiteData.facility_phone || 'N/A'}</p>
+                        <p></p>
+                        <p>{streetAddress} </p>
+                        <p>{city} {state} {postalCode}</p>
+                    <p>{campsiteData.facility_phone || 'Phone unavailable'}</p>
                 </div>
             </div>
             <div id="details-right">
@@ -36,14 +44,6 @@ const CampsiteDetails = () => {
                     <p className="details-text">{stripHtmlTags(campsiteData.facility_directions) || 'N/A'}</p>
                 </div>
             </div>
-            {/* <header>
-                {campsiteData.facility_map_url ? (
-                    <img src={campsiteData.facility_map_url} alt={`Map for ${campsiteData.name}`} 
-                        onError={(e) => console.error('Image load error:', e)}/>
-                ) : (
-                    <h2>{campsiteData.name || 'N/A'}</h2>
-                )}
-            </header>  */}
         </div>
     );
 };

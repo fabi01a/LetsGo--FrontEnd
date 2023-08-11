@@ -1,14 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import DisplayCampsites from "./pages/DisplayCampsites";
 import CampsiteDetails from "./pages/CampsiteDetails";
-import UserProfile from "./pages/UserProfile";
-import FavoriteFacilities from "./pages/FavoriteFacilities";
-// import { CampsiteProvider } from "./pages/CampsiteContext";
-// import SubmitButton from './components/SubmitButton';
-// import FourOhFour from './pages/404';
+// import UserProfile from "./pages/UserProfile";
+// import FavoriteFacilities from "./pages/FavoriteFacilities";
 import './App.css';
 
 const App = () => {
@@ -17,8 +14,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home'>
-          <Route index element={<UserProfile />} />
-          <Route path='favorites' element={<FavoriteFacilities />} />
+          {/* <Route index element={<UserProfile />} /> */}
+          {/* <Route path='favorites' element={<FavoriteFacilities />} /> */}
         </Route>
         <Route path='/search' element={<Search />} />
         <Route path='/search/campsites' element={<DisplayCampsites />} />
