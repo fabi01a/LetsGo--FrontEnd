@@ -4,20 +4,14 @@ import SubmitButton from '../components/SubmitButton';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Search = () => {
     const navigate = useNavigate();
 
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
 
-    // useEffect(() => {
-    //     if (processedData) {
-    //         navigate('/search/campsites', { state: processedData });
-    //     }
-    // }, [processedData, navigate]);
-
+    // const urlBase = 'http://127.0.0.1:8000'
+    const urlBase = 'https://letsgo-be-userprofile.onrender.com'
 
     const handleAddressChange = (e) => {
         setAddress(e.target.value);
@@ -32,17 +26,12 @@ const Search = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/get_campsite_data', {
-
-            // const response = await axios.get('https://letsgo-be-userprofile.onrender.com/get_campsite_data', {
+            const response = await axios.get(`${urlBase}/get_campsite_data`, {
                 params: {                   
                     address: address,
                     radius: maxDistance,  
                 },
             });
-            console.log(response.data)
-            //processed data received from backend/use this later to pass along to other page
-            // setProcessedData(response.data);//setting the processedData state here
             navigate('/search/campsites',  { state: response.data });
         }   catch (error) {
             console.error('Error occured', error);

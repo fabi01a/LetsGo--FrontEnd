@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import NaviBar from "./components/NaviBar";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import DisplayCampsites from "./pages/DisplayCampsites";
@@ -11,6 +12,7 @@ import './App.css';
 const App = () => {
   return (   
     <div className='App'>
+      <NaviBar></NaviBar>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home'>
