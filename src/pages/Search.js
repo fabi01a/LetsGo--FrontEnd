@@ -10,8 +10,8 @@ const Search = () => {
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
 
-    // const urlBase = 'http://127.0.0.1:8000'
-    const urlBase = 'https://letsgo-be-userprofile.onrender.com'
+    const urlBase = 'http://127.0.0.1:8000'
+    // const urlBase = 'https://letsgo-be-userprofile.onrender.com'
 
     const handleAddressChange = (e) => {
         setAddress(e.target.value);
