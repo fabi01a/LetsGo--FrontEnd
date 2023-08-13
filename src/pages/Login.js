@@ -31,6 +31,7 @@ const Login = () => {
         });
     };
 
+
     const handleRegistration = (email,password) => {
         axios
         .post(`${process.env.REACT_APP_API_URL}/auth/register/`, { email, password })
@@ -43,7 +44,7 @@ const Login = () => {
         });
     };
 
-    const formik = useFormik({
+    const loginformik = useFormik({
         initialValues: {
             email: "",
             password: "",
@@ -58,13 +59,27 @@ const Login = () => {
         }),
     });
 
+    const registrationFormik = useFormik({
+        initialValues: {
+            registrationEmail: "",
+            registrationPassword: "",
+        },
+        onSubmit: (values) => {
+            setLoading(true);
+            handleLogin(values.email, values.password);
+        },
+        validationSchema: Yup.object({
+            email: Yup.string().trim().required('A user name is required'),
+            password: Yup.string().trim().required('Please enter a password'),
+        }),
+    })
     return (
         <div className="h-screen flex bg-gray-bg1">
             <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
                 <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
                     Log in to your account 🔐
                 </h1>
-                <form onSubmit={formik.handleSubmit}>
+                <form onSubmit={loginformik.handleSubmit}>
                     <div className="space-y-4">
                         <input
                             className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
@@ -72,23 +87,23 @@ const Login = () => {
                             type="email"
                             placeholder="Email"
                             name="email"
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
+                            value={loginformik.values.email}
+                            onChange={loginformik.handleChange}
+                            onBlur={loginformik.handleBlur}
                         />
-                        {formik.errors.email ? <div>{formik.errors.email} </div> : null}
+                        {loginformik.errors.email ? <div>{loginformik.errors.email} </div> : null}
                         <input
                             className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
                             id="password"
                             type="password"
                             placeholder="Password"
                             name="password"
-                            value={formik.values.password}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
+                            value={loginformik.values.password}
+                            onChange={loginformik.handleChange}
+                            onBlur={loginformik.handleBlur}
                         />
-                        {formik.errors.password ? (
-                            <div>{formik.errors.password} </div>
+                        {loginformik.errors.password ? (
+                            <div>{loginformik.errors.password} </div>
                         ) : null}
                     </div>
                     <div className="text-danger text-center my-2" hidden={false}>
@@ -110,7 +125,7 @@ const Login = () => {
                 <h2 className="text-x1 font-medium text-primary mt-6 mb-4 text-center">
                     Register an account 🔐
                 </h2>
-                <form onSubmit={formik.handleSubmit}>
+                <form onSubmit={registrationFormik.handleSubmit}>
                     <div className="space-y-4">
                         <input
                             className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
@@ -118,23 +133,23 @@ const Login = () => {
                             type="email"
                             placeholder="Email"
                             name="registrationEmail"
-                            value={formik.values.registrationEmail}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
+                            value={registrationFormik.values.registrationEmail}
+                            onChange={registrationFormik.handleChange}
+                            onBlur={registrationFormik.handleBlur}
                         />
-                        {formik.errors.registrationEmail ? <div>{formik.errors.registrationEmail} </div> : null}
+                        {registrationFormik.errors.registrationEmail ? <div>{registrationFormik.errors.registrationEmail} </div> : null}
                         <input
                             className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
                             id="registrationPassword"
                             type="password"
                             placeholder="Password"
                             name="registrationPassword"
-                            value={formik.values.registrationPassword}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
+                            value={registrationFormik.values.registrationPassword}
+                            onChange={registrationFormik.handleChange}
+                            onBlur={registrationFormik.handleBlur}
                         />
-                        {formik.errors.registrationPassword ? (
-                            <div>{formik.errors.registrationPassword} </div>
+                        {registrationFormik.errors.registrationPassword ? (
+                            <div>{registrationFormik.errors.registrationPassword} </div>
                         ) : null}
                     </div>
                     <div className="text-danger text-center my-2" hidden={false}>
@@ -145,7 +160,7 @@ const Login = () => {
                             type="submit"
                             disabled={loading}
                             className="rounded border-gray-300 p-2 w-32 bg-blue-700 text-black"
-                            onClick={() => handleRegistration(formik.values.registrationEmail, formik.values.registrationPassword)}
+                            onClick={() => handleRegistration(registrationFormik.values.registrationEmail, registrationFormik.values.registrationPassword)}
                         >
                             Register
                         </button>
