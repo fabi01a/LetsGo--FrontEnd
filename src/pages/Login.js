@@ -13,9 +13,11 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = (email, password) => {
+        console.log('Attempting login....')
         axios
         .post(`${process.env.REACT_APP_API_URL}/auth/login/`, { email, password })
         .then((res) => {
+            console.log('Login response:', res.data)
             dispatch(
                 authSlice.actions.setAuthTokens({
                     token: res.data.access,
@@ -122,7 +124,7 @@ const Login = () => {
                 <p className='text-center mt-4'>
                     Don't have an account? <Link to="/login/registration">Register here</Link>
                 </p>
-                <h2 className="text-x1 font-medium text-primary mt-6 mb-4 text-center">
+                {/* <h2 className="text-x1 font-medium text-primary mt-6 mb-4 text-center">
                     Register an account 🔐
                 </h2>
                 <form onSubmit={registrationFormik.handleSubmit}>
@@ -150,8 +152,8 @@ const Login = () => {
                         />
                         {registrationFormik.errors.registrationPassword ? (
                             <div>{registrationFormik.errors.registrationPassword} </div>
-                        ) : null}
-                    </div>
+                        ) : null} */}
+                    {/* </div>
                     <div className="text-danger text-center my-2" hidden={false}>
                         {message}
                     </div>
@@ -165,7 +167,7 @@ const Login = () => {
                             Register
                         </button>
                     </div>
-                </form>
+                </form> */}
             </div>
         </div>
     );

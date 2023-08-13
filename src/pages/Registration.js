@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Login from './Login';
+import { Link } from 'react-router-dom';
 
 const Registration = () => {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
     const [passwordError, setPasswordError] = useState("");
+    const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
     const handleRegistration = (email, password) => {
-        // setLoading(true);
-        console.log("API URL:", process.env.REACT_APP_API_URL);
+
         if(password.length < 8) {
             setPasswordError('Password must be at least 8 characters long');
             return;
@@ -22,6 +24,7 @@ const Registration = () => {
         })
         .then((res) => {
             setMessage('Registration successful! Please log in');
+            setRegistrationSuccess(true);
             setLoading(false);
         })
         .catch((err) => {
@@ -46,12 +49,16 @@ const Registration = () => {
             <form onSubmit = {handleSubmit}>
                 <label>Email:</label>
                 <input type='email' name='email' required />
-                <label>Password:</label>
+                <label>Password: </label>
                 <input type="password" name="password" required />
-                {passwordError && <p style={{ color: 'red '}}>{passwordError}</p>}
                 <button type='submit' disabled={loading}>Register</button>
             </form>
+            {passwordError && <p style={{ color: 'red '}}>{passwordError}</p>}
             {message && <p>{message}</p>}
+            <p className='text-center mt-4'>
+                Already have an account? <Link to="/login">Log in here</Link>
+            </p>
+            {registrationSuccess && <Login />}
         </div>
     );
 };

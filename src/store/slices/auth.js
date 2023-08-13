@@ -25,7 +25,7 @@ export default authSlice
 
 
 // import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import { AccountResponse } from "../../../types";
+// import { AccountResponse }  from "../../types";
 
 // const initialState = {
 //     token: null,
@@ -55,4 +55,4 @@ export default authSlice
 
 // export const { setAuthTokens, setAccount, logout } = authSlice.actions;
 
-// export default authSlice.reducer;
+// export default authSlice;

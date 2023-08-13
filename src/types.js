@@ -2,7 +2,7 @@ export const AccountResponse = {
 user: {
         id: '',
         email: '',
-        username: '',
+        // username: '',
         is_active: false,
         created: new Date(),
         updated: new Date()
