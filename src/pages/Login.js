@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = (email, password) => {
-        console.log('Attempting login....')
+        console.log('Attempting login....', process.env)
         axios
         .post(`${process.env.REACT_APP_API_URL}/auth/login/`, { email, password })
         .then((res) => {
@@ -29,6 +29,7 @@ const Login = () => {
             navigate('/');
         })
         .catch((err) => {
+            console.log(err)
             setMessage(err.response?.data?.detail?.toString() || 'An error occured. Please try again later.');
         });
     };

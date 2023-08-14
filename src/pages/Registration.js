@@ -17,7 +17,7 @@ const Registration = () => {
         }
 
         axios
-        .post(`http://${process.env.REACT_APP_API_URL}/auth/register/`, { email, password }, {
+        .post(`${process.env.REACT_APP_API_URL}/auth/register/`, { email, password }, {
             headers: {
                 'Content-Type': 'application/json',
             },
