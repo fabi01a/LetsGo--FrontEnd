@@ -37,7 +37,7 @@ const Registration = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const { email,password } = event.target.elements;
+        const { email, password } = event.target.elements;
         console.log("Email:", email.value);
         console.log("Password:", password.value);
         handleRegistration(email.value, password.value);
@@ -46,19 +46,23 @@ const Registration = () => {
     return (
         <div>
             <h1>Registration</h1>
-            <form onSubmit = {handleSubmit}>
-                <label>Email:</label>
-                <input type='email' name='email' required />
-                <label>Password: </label>
-                <input type="password" name="password" required />
-                <button type='submit' disabled={loading}>Register</button>
-            </form>
+            {registrationSuccess ? (
+                <>
+                    <p>{message}</p>
+                    <p className= 'text-center mt-4'>
+                        Please <Link to="/login">log in here</Link>
+                    </p>
+                </>
+            ) : (
+                <form onSubmit = {handleSubmit}>
+                    <label>Email:</label>
+                    <input type='email' name='email' required />
+                    <label>Password: </label>
+                    <input type="password" name="password" required />
+                    <button type='submit' disabled={loading}>Register</button>
+                </form>
+            )}
             {passwordError && <p style={{ color: 'red '}}>{passwordError}</p>}
-            {message && <p>{message}</p>}
-            <p className='text-center mt-4'>
-                Already have an account? <Link to="/login">Log in here</Link>
-            </p>
-            {registrationSuccess && <Login />}
         </div>
     );
 };
