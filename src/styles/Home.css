@@ -1,8 +1,18 @@
+#home-row--1--image {
+    width: 100%;
+}
 .row-1 {
     align-self: center;
-    background-color: rgb(249, 248, 248);
-    padding: 5%;
+    /* background-color: rgb(249, 248, 248); */
+    background-color:#abd5ab;
+    border: 2px solid grey;
+
+    padding: 3%;
     width:500px;
+}
+
+.row-1--title {
+    padding-bottom: 5%;
 }
 
 .row-2 {

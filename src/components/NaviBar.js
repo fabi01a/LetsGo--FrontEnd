@@ -1,11 +1,11 @@
-// import "../style/NaviBar.css";
+import "../styles/NaviBar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 const NaviBar = () => {
     return (
-        <Navbar expand="md" className="bg-body-tertiary">
+        <Navbar expand="md" id="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="#home">LetsGo!</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

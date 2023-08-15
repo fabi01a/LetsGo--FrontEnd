@@ -44,8 +44,9 @@
   font-weight: bolder;
 }
 .page-container {
-  background-color: beige;
-  display: flex;
+  /* background-color: beige; */
+  background-image: linear-gradient(to top, #efe76b, #f4d965, #f6cc61, #f7bf5f, #f7b25f, #e8b661, #daba65, #ccbc6b, #b0ca87, #9dd3a9, #99d8c7, #a8dadc);  display: flex;
+  /* background-image: linear-gradient(to top, #efe76b, #f4d965, #f6cc61, #f7bf5f, #f7b25f, #e8b661, #daba65, #ccbc6b, #b0ca87, #9dd3a9, #99d8c7, #a8dadc); */
   flex-direction: column;
   height: 100vh;
   justify-content: center;

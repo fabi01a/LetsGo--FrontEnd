@@ -9,16 +9,16 @@ const DisplayCampsites = () => {
 
     return (
         <div className="page-container">
-            <MDBTable hover>
+            <MDBTable id="table-container" hover>
                 <MDBTableHead id="table-head">
                     <tr className="table-warning"> 
-                        <th scope="col">#</th>
-                        <th scope="col">Facility Name</th>
-                        <th scope="col">Facility Address</th>
-                        <th scope="col">Facility Phone Number</th>
+                        <th id="table-data--index" scope="col">#</th>
+                        <th className="table-data" scope="col">Facility Name</th>
+                        <th className="table-data" scope="col">Facility Address</th>
+                        <th className="table-data" scope="col">Facility Phone Number</th>
                     </tr>
                 </MDBTableHead>
-            <MDBTableBody>
+            <MDBTableBody id="table-body">
                 {processedData.map((campsite, index) => (
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
@@ -45,7 +45,8 @@ const DisplayCampsites = () => {
                                 "N/A"
                             )}
                         </td>
-                        <td>{campsite.facility_phone || "Not Available"}</td>
+                        <td>
+                            {campsite.facility_phone || "Not Available"}</td>
                         </tr>
                     ))} 
                 </MDBTableBody>

@@ -52,7 +52,7 @@ const Registration = () => {
     });
 
     return (
-        <div>
+        <div className="page-container">
             <h1>Registration</h1>
             {registrationSuccess ? (
                 <>

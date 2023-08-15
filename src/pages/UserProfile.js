@@ -20,7 +20,7 @@ const UserProfile = () => {
     };
     
     return (
-        <div className="w-full h-screen p-6">
+        <div className="w-full h-screen p-6 page-container">
             <h1>Welcome!</h1>
 
             <div className="mb-4">
