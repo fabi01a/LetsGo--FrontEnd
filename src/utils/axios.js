@@ -34,7 +34,7 @@ axiosService.interceptors.response.use(
             res.status,
             res.data
         )
-        return Promise.resolve(res)
+        return Promise.resolve(res.data) //<- this was updated to/from res: res returns the entire info, you just want data
     },
     err => {
         console.debug(

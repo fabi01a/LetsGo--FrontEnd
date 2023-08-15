@@ -12,8 +12,8 @@ const UserProfile = () => {
 
     const userId = account?.id;
 
-    const user = useSWR(`/user/${userId}/`, fetcher);
-
+    const { data, error, isLoading } = useSWR(`/user/${userId}/`, fetcher);
+    console.log(data, error, isLoading)
     const handleLogout = () => {
         dispatch(authSlice.actions.logout());
         navigate("/login");
@@ -21,27 +21,18 @@ const UserProfile = () => {
     
     return (
         <div className="w-full h-screen p-6">
-            <h1>User Profile</h1>
+            <h1>Welcome!</h1>
 
             <div className="mb-4">
-                {user.data ? (
+                {!error && !isLoading ? (
                     <div>
-                        <p>Email: {user.data.email}</p>
-                        <p>Other Profile Data: {user.data.otherField}</p>
+                        <p>Email: {data.email}</p>
+                        {/* <p>Other Profile Data: {user.data.otherField}</p> */}
                     </div>
                 ) : (
                     <p>Loading user profile...</p>
                 )}
             </div>
-
-            <div className="text-center">
-                {user.data ? (
-                    <p>Welcome, {user.data?.username}</p>
-                ) : (
-                    <p>Loading...</p>
-                )}
-            </div>
-
             <button
                 onClick={handleLogout}
                 className="rounded p-2 w-32 bg-red-700 text-black"

@@ -1,8 +1,7 @@
-import React from 'react';
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-import { useLocation, Link } from 'react-router-dom';
-import '../styles/DisplayCampsites.css';
-
+import React from "react";
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
+import { useLocation, Link } from "react-router-dom";
+import "../styles/DisplayCampsites.css";
 
 const DisplayCampsites = () => {
     const location = useLocation();
@@ -11,18 +10,18 @@ const DisplayCampsites = () => {
     return (
         <div className="page-container">
             <MDBTable hover>
-                <MDBTableHead id='table-head'>
-                    <tr className='table-warning'> 
-                        <th scope='col'>#</th>
-                        <th scope='col'>Facility Name</th>
-                        <th scope='col'>Facility Address</th>
-                        <th scope='col'>Facility Phone Number</th>
+                <MDBTableHead id="table-head">
+                    <tr className="table-warning"> 
+                        <th scope="col">#</th>
+                        <th scope="col">Facility Name</th>
+                        <th scope="col">Facility Address</th>
+                        <th scope="col">Facility Phone Number</th>
                     </tr>
                 </MDBTableHead>
             <MDBTableBody>
                 {processedData.map((campsite, index) => (
                     <tr key={index}>
-                        <th scope='row'>{index + 1}</th>
+                        <th scope="row">{index + 1}</th>
                         <td>
                             <Link 
                                 to={`/search/campsites/${campsite.facility_name}`}
@@ -34,7 +33,7 @@ const DisplayCampsites = () => {
                                             facility_description: campsite.facility_description,
                                             facility_image: campsite.facility_image_url,
                                 }}
-                                className='link'
+                                className="link"
                             >
                         {campsite.facility_name}
                         </Link>
@@ -43,10 +42,10 @@ const DisplayCampsites = () => {
                             {campsite.facility_address ? (
                                 `${campsite.facility_address.street_address}  ${campsite.facility_address.city} ${campsite.facility_address.state} ${campsite.facility_address.postal_code}`
                             ) : (
-                                'N/A'
+                                "N/A"
                             )}
                         </td>
-                        <td>{campsite.facility_phone || 'Not Available'}</td>     
+                        <td>{campsite.facility_phone || "Not Available"}</td>
                         </tr>
                     ))} 
                 </MDBTableBody>
@@ -54,4 +53,5 @@ const DisplayCampsites = () => {
         </div>
     );
 };
+
 export default DisplayCampsites;

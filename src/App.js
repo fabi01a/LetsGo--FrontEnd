@@ -1,18 +1,19 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import NaviBar from "./components/NaviBar";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import DisplayCampsites from "./pages/DisplayCampsites";
 import CampsiteDetails from "./pages/CampsiteDetails";
-import Login from './pages/Login';
-import Registration from './pages/Registration'
-import ProtectedRoute from './components/ProtectedRoute';
-import UserProfile from './pages/UserProfile';
-import store, { persistor } from './store';
-// import UserProfile from "./pages/UserProfile";
+import Login from "./pages/Login";
+import Registration from "./pages/Registration";
+import ProtectedRoute from "./components/ProtectedRoute";
+import UserProfile from "./pages/UserProfile";
+// import UserList from "./pages/UserList";
+// import RequireAuth from "./components/RequireAuth";
+import store, { persistor } from "./store";
 // import FavoriteFacilities from "./pages/FavoriteFacilities";
 import './App.css';
 
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/search/campsites' element={<DisplayCampsites />} />
             <Route path='/search/campsites/:facilityName'element={<CampsiteDetails />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/profile' element={<UserProfile />} />
             <Route path='/login/registration' element={<Registration />} />
             <Route path='/protected'element={<ProtectedRoute/>}>
               <Route index element={<UserProfile/>} />

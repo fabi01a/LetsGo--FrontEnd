@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Home.css';
-import ScrollingSelect from '../components/ScrollingSelect';
-import SubmitButton from '../components/SubmitButton';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/Home.css";
+import ScrollingSelect from "../components/ScrollingSelect";
+import SubmitButton from "../components/SubmitButton";
 
 const Home = () => {
     const options = [
@@ -13,7 +13,7 @@ const Home = () => {
         {value: '🛶'}
 
     ];
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState("");
 
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
@@ -27,8 +27,8 @@ const Home = () => {
             </div>
             <div className="row-2">
                 <ScrollingSelect options={options} onChange={handleSelectChange} />
-                <Link id='row-2--button' to='/search'>
-                    <SubmitButton navigateTo='/search' />
+                <Link id='row-2--button' to="/search">
+                    <SubmitButton navigateTo="/search" />
                 </Link>
             </div>
         </div>

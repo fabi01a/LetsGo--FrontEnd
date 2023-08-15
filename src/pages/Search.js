@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import '../styles/Search.css';
-import SubmitButton from '../components/SubmitButton';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "../styles/Search.css";
+import SubmitButton from "../components/SubmitButton";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
     const navigate = useNavigate();
@@ -32,9 +32,9 @@ const Search = () => {
                     radius: maxDistance,  
                 },
             });
-            navigate('/search/campsites',  { state: response.data });
+            navigate("/search/campsites",  { state: response.data });
         }   catch (error) {
-            console.error('Error occured', error);
+            console.error("Error occured", error);
         }
     };
 
@@ -44,7 +44,7 @@ const Search = () => {
                 <div className="row-1--title">Choose Your Destination</div>
                 <img id="search-row--1--image" src="https://res.cloudinary.com/dgiopn7es/image/upload/v1691441983/Screenshot_2023-08-07_at_1.58.37_PM_ulbnv9.png" alt="campsite tent" />
             </div>
-            <div id='search-container--middle'>
+            <div id="search-container--middle">
                 <div>
                     <input type="text" value={address} onChange={handleAddressChange} />
                     <div className="center-text bold-text">Starting Point</div>
@@ -54,7 +54,7 @@ const Search = () => {
                     <div className="center-text bold-text">Max Distance</div>
                 </div>
             </div>
-            <div id='search-container--bottom'>
+            <div id="search-container--bottom">
                 <SubmitButton onSubmit={handleSubmit} />
             </div>
         </div>
