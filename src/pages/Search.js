@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import '../styles/Search.css';
-import SubmitButton from '../components/SubmitButton';
-import axios from 'axios';
-
+import React, { useState } from "react";
+import "../styles/Search.css";
+import SubmitButton from "../components/SubmitButton";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+    const navigate = useNavigate();
+
     const[address, setAddress] = useState("");
     const[maxDistance, setMaxDistance] = useState("");
+
+    // const urlBase = 'http://127.0.0.1:8000'
+    const urlBase = 'https://letsgo-be-userprofile.onrender.com'
 
     const handleAddressChange = (e) => {
         setAddress(e.target.value);
@@ -21,28 +26,25 @@ const Search = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/get_campsite_data/', {
+            const response = await axios.get(`${urlBase}/get_campsite_data`, {
                 params: {                   
                     address: address,
-                    radius: maxDistance,
+                    radius: maxDistance,  
                 },
             });
-
-            //processed data received from backend/use this later to pass along to other page
-            //const processedData = response.data;
-            
+            navigate("/search/campsites",  { state: response.data });
         }   catch (error) {
-            console.error('Error occured', error);
+            console.error("Error occured", error);
         }
     };
 
     return (
-        <div id="search-container">
-            <div id='search-container--top'>
-                <img id="search-container--top--image"src="https://res.cloudinary.com/dvbdefnwx/image/upload/v1666621595/sample.jpg" alt="campsite tent"/> 
-                <div>Choose Your Destination</div>
+        <div className="page-container">
+            <div className="row-1">
+                <div className="row-1--title">Choose Your Destination</div>
+                <img id="search-row--1--image" src="https://res.cloudinary.com/dgiopn7es/image/upload/v1691441983/Screenshot_2023-08-07_at_1.58.37_PM_ulbnv9.png" alt="campsite tent" />
             </div>
-            <div id='search-container--middle'>
+            <div id="search-container--middle">
                 <div>
                     <input type="text" value={address} onChange={handleAddressChange} />
                     <div className="center-text bold-text">Starting Point</div>
@@ -52,8 +54,8 @@ const Search = () => {
                     <div className="center-text bold-text">Max Distance</div>
                 </div>
             </div>
-            <div id='search-container--bottom'>
-                <SubmitButton handleSubmit={handleSubmit} />
+            <div id="search-container--bottom">
+                <SubmitButton onSubmit={handleSubmit} />
             </div>
         </div>
     );
